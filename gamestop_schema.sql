@@ -4,7 +4,7 @@ CREATE DATABASE gamestop_schema;
 
 USE gamestop_schema;
 
-CREATE TABLE games (
+CREATE TABLE games(
 	game_id INT AUTO_INCREMENT,
 	game_title VARCHAR(60) NOT NULL,
 	game_genre VARCHAR(40) NOT NULL,
