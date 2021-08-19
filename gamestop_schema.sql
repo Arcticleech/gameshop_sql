@@ -10,7 +10,8 @@ CREATE TABLE games (
 	game_genre VARCHAR(40) NOT NULL,
 	game_price DECIMAL(100,2) NOT NULL,
 	game_details VARCHAR(100) NOT NULL,
-	PRIMARY KEY (game_id)
+	PRIMARY KEY (game_id),
+	PRIMARY KEY (game_price)
 );
 
 CREATE TABLE customers(
@@ -34,11 +35,12 @@ CREATE TABLE orders(
 	order_id INT AUTO_INCREMENT,
 	fk_game_id INT,
 	fk_customer_id INT,
-	age_verify BOOLEAN NOT NULL,
+	fk_game_price, DECIMAL(100,2)
 	date_of_purchase DATE NOT NULL,
 	fk_staff_id INT,
 	PRIMARY KEY (order_id),
 	FOREIGN KEY (fk_game_id) REFERENCES games(game_id),
 	FOREIGN KEY (fk_customer_id) REFERENCES customers(customer_id),
-	FOREIGN KEY (fk_staff_id) REFERENCES staff(staff_id)
+	FOREIGN KEY (fk_staff_id) REFERENCES staff(staff_id),
+	FOREIGN KEY (fk_game_price) REFERENCES games(game_price)
 );
