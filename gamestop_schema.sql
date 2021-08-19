@@ -1,6 +1,8 @@
-CREATE DATABASE gameshop_schema
+DELETE DATABASE IF EXISTS gamestop_schema;
 
-USE gameshop_schema
+CREATE DATABASE gamestop_schema;
+
+USE gamestop_schema;
 
 CREATE TABLE games (
 	game_id INT AUTO_INCREMENT,
@@ -39,3 +41,4 @@ CREATE TABLE orders(
 	FOREIGN KEY (fk_game_id) REFERENCES games(game_id),
 	FOREIGN KEY (fk_customer_id) REFERENCES customers(customer_id),
 	FOREIGN KEY (fk_staff_id) REFERENCES staff(staff_id)
+);
